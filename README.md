@@ -12,6 +12,3 @@ It is also necessary to have a folder called 'data' in the directory before runn
 ## Usage
 User selects different options given on the menu by entering digits. Most necessary information is given in the menu. The user also has the ability to manually reset the database
 to the original state.
-
-## Future plans
-To prevent a known bug, I plan to use the os module to check if the data folder exists and create it if necessary. This will stop the program from crashing if it is not present.

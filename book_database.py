@@ -1,5 +1,6 @@
 import sqlite3
 import pandas as pd
+import os
 
 def setup_database():
         ''''
@@ -74,7 +75,6 @@ def add_book():
                         print('Entry added successfully!')
                         break
 
-
 def delete_book():
         '''
         Retrieves a book with the entered ID
@@ -106,8 +106,7 @@ def delete_book():
                         break
                 else:
                         print('Invalid choice - Try again')
-
-        
+       
 def retrieve_book():
         ''''
         When user enters an ID, retrieves that entry from the table
@@ -218,6 +217,11 @@ def reset_db():
                 print('Returning to menu...')
 
 # compliation error if the data folder does not already exist:
+
+data_folder = 'data'
+if not os.path.exists(data_folder):
+        os.makedirs(data_folder)
+
 db  = sqlite3.connect('data/books.db')
 cursor = db.cursor()
 
