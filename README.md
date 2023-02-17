@@ -6,6 +6,7 @@ Users can use this interface to add books, delete books, update book information
 This project runs in Python and requires the following modules:
 * SQLite3
 * Pandas
+* OS
 
 It is also necessary to have a folder called 'data' in the directory. The program creates this folder if it does not exists.
 
