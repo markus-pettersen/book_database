@@ -13,3 +13,11 @@ It is also necessary to have a folder called 'data' in the directory. The progra
 ## Usage
 User selects different options given on the menu by entering digits. Most necessary information is given in the menu. The user also has the ability to manually reset the database
 to the original state.
+<<<<<<< HEAD
+
+## Updates
+### 11th May 2023
+* Reorganised menu to use a dictionary rather than if-else statements
+* Added condtion to ensure code only runs when executed as a script
+=======
+>>>>>>> ac2c9fa88a7f5ba280c031ec2f5f645a627685d4
