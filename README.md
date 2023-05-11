@@ -13,7 +13,6 @@ It is also necessary to have a folder called 'data' in the directory. The progra
 ## Usage
 User selects different options given on the menu by entering digits. Most necessary information is given in the menu. The user also has the ability to manually reset the database
 to the original state.
-<<<<<<< HEAD
 
 ## Updates
 ### 11th May 2023
