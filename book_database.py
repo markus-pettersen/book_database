@@ -106,7 +106,7 @@ def delete_book():
                         break
                 else:
                         print('Invalid choice - Try again')
-       
+
 def retrieve_book():
         ''''
         When user enters an ID, retrieves that entry from the table
@@ -159,7 +159,7 @@ def update_book(book_tup):
                         db.commit()
                         print('Entry updated!')
                         break
-        
+
 def search_books():
         '''
         User can search the title and author columns and retrieve all the
@@ -198,7 +198,6 @@ def display_all():
         print(result_df)
         print()
 
-
 def reset_db():
         '''
         Restores the database to original values
@@ -216,19 +215,43 @@ def reset_db():
         else:
                 print('Returning to menu...')
 
-# compliation error if the data folder does not already exist:
+def exit_program():
+        '''Closes the connection to the database and exits the program'''
+        db.close()
+        print('Connection to database closed!!!')
+        exit()
 
-data_folder = 'data'
-if not os.path.exists(data_folder):
-        os.makedirs(data_folder)
+def invalid_choice():
+    '''
+    Prints a message for the user when an invalid selection is entered at the
+    menu
+    '''
+    print('Invalid choice. Try again.')
 
-db  = sqlite3.connect('data/books.db')
-cursor = db.cursor()
+if __name__ == "__main__":
 
-setup_database()
+        # compilation error if the data folder does not already exist:
+        data_folder = 'data'
+        if not os.path.exists(data_folder):
+                os.makedirs(data_folder)
 
-while True:
-        menu_choice = input('''Select one of the follow options below:
+        db  = sqlite3.connect('data/books.db')
+        cursor = db.cursor()
+
+        setup_database()
+
+        menu_dict = {
+                    "1": add_book,
+                    "2": retrieve_book,
+                    "3": delete_book,
+                    "4": search_books,
+                    "5": display_all,
+                    "6": reset_db,
+                    "0": exit_program,
+                    }
+
+        while True:
+                menu_choice = input('''Select one of the follow options below:
                         1 - Enter book
                         2 - Update book
                         3 - Delete book
@@ -237,22 +260,5 @@ while True:
                         6 - Reset database (DEBUG)
                         0 - Exit
                         >>> ''')
-        if menu_choice == '1':
-                add_book()                
-        elif menu_choice == '2':
-                retrieve_book()
-        elif menu_choice == '3':
-                delete_book()
-        elif menu_choice == '4':
-                search_books()
-        elif menu_choice == '5':
-                display_all()        
-        elif menu_choice == '6':
-                reset_db()
-        elif menu_choice == '0':
-                db.close()
-                print('Connection to database closed!!!')
-                exit()
-        else:
-                print('Invalid choice. Try again.')
-                
+                choice_select = menu_dict.get(menu_choice, invalid_choice)
+                choice_select()
