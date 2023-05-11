@@ -19,5 +19,3 @@ to the original state.
 ### 11th May 2023
 * Reorganised menu to use a dictionary rather than if-else statements
 * Added condtion to ensure code only runs when executed as a script
-=======
->>>>>>> ac2c9fa88a7f5ba280c031ec2f5f645a627685d4
